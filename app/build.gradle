@@ -1,0 +1,199 @@
+plugins {
+    id 'com.android.application'
+    id 'org.greenrobot.greendao'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'com.google.firebase.crashlytics'
+    id 'android-junk-code'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "33.0.1"
+
+    defaultConfig {
+        applicationId "com.example.dependenciesdemo"
+        minSdkVersion 16
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
+//    api 'com.google.code.gson:gson:2.8.6'
+    // 2020-05-19 因 google 警告 bugly的问题，替换成 firebase crashlytics
+//    implementation 'com.tencent.bugly:crashreport:latest.release'
+//    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+    //    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
+    api 'com.zhy:okhttputils:2.6.2'
+    api 'com.qiniu:qiniu-android-sdk:8.4.4'
+//    api 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    api 'com.github.nostra13:Android-Universal-Image-Loader:458df4da2e'
+//    api 'com.umeng.sdk:common:latest.integration'
+//    implementation 'com.umeng.sdk:common:latest.integration'
+//    api 'com.umeng.sdk:analytics:latest.integration'
+
+    //greenDao数据库框架
+    implementation('org.greenrobot:greendao:3.3.0') {
+        exclude group: 'androidx.annotation', module: 'annotation'
+    }
+    implementation('com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.2.1') {
+        exclude group: 'androidx.annotation', module: 'annotation'
+    }
+    api 'com.android.support:design:28.0.0'
+    implementation('com.github.hackware1993:MagicIndicator:1.7.0') {
+        exclude group: 'androidx.annotation', module: 'annotation'
+//        exclude module: 'annotations'
+    }
+
+    api 'androidx.multidex:multidex:2.0.1'
+    api 'cn.dreamtobe.kpswitch:library:1.6.1'
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+//    api 'com.github.dueeeke.dkplayer:dkplayer-java:2.5.5'
+//    api 'com.github.dueeeke.dkplayer:dkplayer-armv7a:2.5.5'
+//    api 'com.github.dueeeke.dkplayer:dkplayer-arm64:2.5.5'
+//    //缓存
+//    api 'com.danikula:videocache:2.7.1'
+    // 必选，内部默认使用系统mediaplayer进行解码
+    api 'xyz.doikki.android.dkplayer:dkplayer-java:3.3.7'
+    // 可选，包含StandardVideoController的实现
+//    api 'xyz.doikki.android.dkplayer:dkplayer-ui:3.3.7'
+    // 可选，使用exoplayer进行解码
+    api 'xyz.doikki.android.dkplayer:player-exo:3.3.7'
+    // 可选，使用ijkplayer进行解码
+//    api 'xyz.doikki.android.dkplayer:player-ijk:3.3.7'
+    // 可选，如需要缓存或者抖音预加载功能请引入此库
+    api 'xyz.doikki.android.dkplayer:videocache:3.3.7'
+
+    api 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+    api 'com.jude:easyrecyclerview:4.4.2'
+    api 'com.google.android.gms:play-services-auth:18.0.0'
+
+    api 'com.camerakit:camerakit:1.0.0-beta3.11'
+    api 'com.camerakit:jpegkit:0.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    api 'androidx.cardview:cardview:1.0.0'
+    //    implementation 'com.github.jokermonn:permissions4m:2.1.2-lib'
+    //    annotationProcessor 'com.github.jokermonn:permissions4m:2.1.2-processor'
+//    implementation project(path: ':support')
+    api 'com.github.getActivity:XXPermissions:16.2'
+    api 'me.leolin:ShortcutBadger:1.1.22@aar'
+//    implementation(name: 'facebook', ext: 'aar')
+//    implementation(name: 'facebook-common', ext: 'aar')
+//    implementation(name: 'facebook-core', ext: 'aar')
+//    implementation(name: 'facebook-login', ext: 'aar')
+    api 'com.facebook.android:facebook-android-sdk:12.2.0'
+    //    implementation 'com.google.android.gms:play-services-auth:15.0.1'
+    //    implementation 'com.android.billingclient:billing:2.0.1'
+    //    implementation 'com.google.firebase:firebase-messaging:17.6.0'
+    api 'com.google.android.gms:play-services-auth:18.0.0'
+    api 'com.android.billingclient:billing:5.0.0'
+    implementation 'com.google.firebase:firebase-messaging'
+    // 2020-5-18 加入谷歌核心库
+    api 'com.google.android.play:core:1.7.3'
+    api 'com.xj.marqueeView:marqueeView:0.1.20'
+    api 'com.booking:rtlviewpager:1.0.1'
+    // 添加 room
+    //    def room_version = "2.2.3"
+    //    implementation "androidx.room:room-runtime:$room_version"
+    //    kapt "androidx.room:room-compiler:$room_version"
+
+    // 美颜
+    implementation files('libs/wcs-android-sdk-1.6.8.jar')
+    //    implementation files('libs/okhttp-3.8.0.jar')
+    //    implementation files('libs/okio-1.13.0.jar')
+    implementation files('libs/agora-rtc-sdk.jar')
+    implementation files('libs/du.jar')
+    //统计
+//    api 'com.kochava.base:tracker:3.7.2'
+    //twitter
+    api 'com.twitter.sdk.android:twitter-core:3.1.1'
+    api 'com.twitter.sdk.android:tweet-composer:3.1.1'
+
+    implementation platform('com.google.firebase:firebase-bom:31.1.1')
+    // 添加firebase 的 奔溃收集库
+    // Recommended: Add the Firebase SDK for Google Analytics.
+    api 'com.google.firebase:firebase-analytics-ktx'
+
+    // Add the Firebase Crashlytics SDK.
+//    implementation 'com.google.firebase:firebase-crashlytics:18.3.1'
+//    implementation 'com.google.firebase:firebase-crashlytics-ndk:17.0.1'
+//    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // kochava 和 Google Play商店 依存关系 需要的库
+    //Required: Google Play Services Ads Identifier (ADID collection)
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+    //Required: Install Referrer
+    implementation 'com.android.installreferrer:installreferrer:2.1'
+
+    // 分页库
+    implementation "androidx.paging:paging-runtime:$paging_version" // For Kotlin use paging-runtime-ktx
+
+//    implementation 'androidx.activity:activity-ktx:1.2.0-alpha08'
+
+//    implementation "com.google.android.material:material:1.2.1"
+
+    // kotlin
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.fragment:fragment-ktx:1.5.5'
+
+    // RxJava
+    // https://github.com/tbruyelle/RxPermissions
+//    implementation 'com.jakewharton.rxbinding4:rxbinding-core:4.0.0'
+//    implementation 'com.github.tbruyelle:rxpermissions:0.12'
+
+    // adjust
+//    implementation 'com.android.installreferrer:installreferrer:2.2'
+////    implementation 'com.adjust.sdk:adjust-android:4.28.9'
+
+    //xpopup
+    implementation 'com.github.li-xiaojun:XPopup:2.8.12'
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7'
+
+    //
+    // For Java
+    implementation 'androidx.work:work-runtime:2.7.1'
+    // For Kotlin
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    implementation 'com.github.yalantis:ucrop:2.2.6'
+
+    // PictureSelector 基础 (必须)
+    implementation 'io.github.lucksiege:pictureselector:v3.10.6'
+    // 图片压缩 (按需引入)
+    implementation 'io.github.lucksiege:compress:v3.10.6'
+
+    implementation 'com.github.warkiz.widget:indicatorseekbar:2.1.2'
+
+    implementation 'com.faceunity:core:8.4.0'
+    implementation 'com.faceunity:model:8.4.0'
+
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+}

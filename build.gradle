@@ -1,0 +1,53 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version  = '1.6.21'
+    ext.paging_version = "2.1.2"
+    ext.versions = [
+            'compileSdk'        : 32,
+            'minSdk'            : 24,
+            'targetSdk'         : 31,
+            'buildTool'         : '30.0.3',
+    ]
+
+
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google/'}
+        maven { url 'https://maven.aliyun.com/repository/public/'}
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/'}
+        maven { url 'http://maven.faceunity.com/repository/maven-public/' }
+        google()
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.1"
+
+        classpath "com.github.qq549631030:android-junk-code:1.1.2"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath 'com.mcxiaoke.packer-ng:plugin:2.0.0'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.google.gms:google-services:4.3.14'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.2'
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google/'}
+        maven { url 'https://maven.aliyun.com/repository/public/'}
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/'}
+        maven { url 'http://maven.faceunity.com/repository/maven-public/' }
+        google()
+        maven { url "https://jitpack.io" }
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
