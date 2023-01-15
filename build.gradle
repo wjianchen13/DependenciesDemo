@@ -30,13 +30,29 @@ buildscript {
         classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-        classpath 'com.google.gms:google-services:4.3.14'
+//        classpath 'com.google.gms:google-services:4.3.14'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.2'
+//        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.2'
     }
 }
 
 allprojects {
+//    configurations.all {
+//
+//        configurations.all {
+//            resolutionStrategy.force 'androidx.lifecycle:lifecycle-viewmodel:2.3.1'
+//        }
+
+//        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//            def requested = details.requested
+//            if (requested.group == 'androidx.lifecycle') {
+//                if (requested.name.startsWith("lifecycle-viewmodel")) {
+//                    details.useVersion '2.5.1'
+//                }
+//            }
+//        }
+//    }
+
     repositories {
         maven { url 'https://maven.aliyun.com/repository/google/'}
         maven { url 'https://maven.aliyun.com/repository/public/'}
